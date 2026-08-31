@@ -9,26 +9,49 @@
 <link href="https://fonts.googleapis.com/css2?family=Bitter:wght@400;600;700&amp;family=Karla:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
 <style>
   body { margin: 0; font-family: Karla, Helvetica, Arial, sans-serif; color: #1d2a24; }
-
+  
   a { color: #2f5d4a; text-decoration: underline; text-underline-offset: 2px; }
   a:hover { color: #9a5b2a; }
   @media screen and (max-width: 820px) {
-    .sheet { --.sheet-w: 100% !important; --.sheet-margin: 20px !important; padding: 0 !important; min-width: 0 !important; }
+    /* neutralise fixed pixel sizes left behind by direct edits */
+    .sheet [style*="width:"] { max-width: 100% !important; }
+    .sheet [style*="height:"] { height: auto !important; }
     .sheet div[style*="grid-template-columns"] { grid-template-columns: 1fr !important; }
     .sheet table { display: table !important; table-layout: fixed !important; width: 100% !important; font-size: 11.5px !important; }
-    .sheet td, .sheet th { white-space: normal !important; overflow-wrap: break-word !important; padding-right: 8px !important; }
+    .sheet td, .sheet th { white-space: normal !important; overflow-wrap: anywhere !important; padding-right: 8px !important; }
     .sheet h1 { font-size: 26px !important; }
     .sheet h2 { font-size: 18px !important; }
-    .sheet > div:first-of-type { flex-wrap: wrap !important; align-items: flex-start !important; gap: 8px !important; }
-    .sheet > div:first-of-type > div:last-child { text-align: left !important; white-space: normal !important; }
+    .sheet p, .sheet span, .sheet div { overflow-wrap: anywhere; }
+  }
+  /* phone: stack the label/value rows so the value gets full width */
+  @media screen and (max-width: 560px) {
+    .sheet { --.sheet-margin: 16px !important; }
+    .sheet div[style*="display:flex"][style*="gap:10px"],
+    .sheet div[style*="display:flex"][style*="gap:12px"],
+    .sheet div[style*="display: flex"][style*="gap: 10px"],
+    .sheet div[style*="display: flex"][style*="gap: 12px"] { flex-direction: column !important; gap: 1px !important; margin-bottom: 10px !important; }
+    .sheet span[style*="flex:0 0 96px"],
+    .sheet span[style*="flex:0 0 108px"],
     .sheet span[style*="flex: 0 0 96px"],
-    .sheet span[style*="flex: 0 0 108px"] { flex: 0 0 78px !important; }
+    .sheet span[style*="flex: 0 0 108px"] { flex: none !important; padding-top: 0 !important; }
+    .sheet table { font-size: 10.5px !important; }
+    .sheet th { font-size: 9px !important; letter-spacing: .06em !important; }
+    .sheet td, .sheet th { padding-right: 5px !important; }
+    .sheet h1 { font-size: 23px !important; }
+    .sheet h2 { font-size: 17px !important; }
   }
 </style>
 <style>
-  body { background: #f5f5f4; padding: 24px 0; }
+  html { -webkit-text-size-adjust: 100%; }
+  body { background: #f5f5f4; padding: 24px 0; overflow-x: hidden; }
   .sheet { width: 8.5in; box-sizing: border-box; padding: 0.7in; margin: 0 auto;
     background: #fff; box-shadow: 0 2px 14px rgba(0,0,0,.12); }
+  @media screen and (max-width: 820px) {
+    body { padding: 0; }
+    .sheet { width: auto !important; max-width: 100vw !important; padding: 22px !important;
+      margin: 0 !important; box-shadow: none !important; }
+  }
+  @media screen and (max-width: 560px) { .sheet { padding: 16px !important; } }
   @media print {
     @page { size: letter; margin: 0.7in; }
     body { background: none; padding: 0; }
@@ -38,25 +61,29 @@
 </head>
 <body>
 <div class="sheet">
-  <div style="display:flex; justify-content:space-between; align-items:flex-end; gap:24px; border-bottom:2px solid #1d2a24; padding-bottom:10px">
-    <h1 style="font-family:Bitter,Georgia,serif; font-weight:700; font-size:34px; line-height:1.05; margin:0; letter-spacing:-0.01em">The Compadre<span style="color: rgb(154, 91, 42);">&nbsp; </span><span style="font-weight: normal;">Hill Country Tour</span></h1>
-    <div style="font:600 11px Karla; letter-spacing:.14em; text-transform:uppercase; color:#5c6660; text-align:right; white-space:nowrap">Thursday, Oct 1 – Sunday, Oct 4, 2026</div>
+  <div style="display:flex; flex-direction:column; align-items:center; gap:14px; padding:12px 0 22px; border-bottom:2px solid #1d2a24; text-align:center">
+    
+    <h1 style="font-family:Bitter,Georgia,serif; font-weight:700; font-size:34px; line-height:1.05; margin:0; letter-spacing:-0.01em">The Compadre&nbsp;<span style="color: rgb(154, 91, 42);"></span><span style="font-weight: normal; font-size: 26px">| Hill Country Tour</span></h1>
+    <div style="font: 600 11px Karla; letter-spacing: .14em; text-transform: uppercase; color: #5c6660; font-size: 15px">Thursday, Oct 1 – Sunday, Oct 4, 2026</div>
   </div>
+
   <div style="display:grid; grid-template-columns:1fr 1fr; gap:6px 34px; margin:18px 0 4px; font-size:14.5px; line-height:1.5">
     <div style="display:flex; gap:10px"><span style="flex:0 0 96px; font:600 11px Karla; letter-spacing:.13em; text-transform:uppercase; color:#8a9490; padding-top:3px">Club</span><span>Boot Ranch, 77 Boot Ranch Circle, Fredericksburg, TX 78624<br>(830) 997-6200</span></div>
     <div style="display:flex; gap:10px"><span style="flex:0 0 96px; font:600 11px Karla; letter-spacing:.13em; text-transform:uppercase; color:#8a9490; padding-top:3px">Lodging</span><span><strong>Sunday House 6.</strong> Everyone gets his own room. Two golf shuttle carts at the house.</span></div>
-    <div style="display:flex; gap:10px"><span style="flex:0 0 96px; font:600 11px Karla; letter-spacing:.13em; text-transform:uppercase; color:#8a9490; padding-top:3px">Gate</span><span>Tell the gate house guard you are in <strong>Sunday House 6</strong>. Everyone gets cleared the same way.</span></div>
+    <div style="display:flex; gap:10px"><span style="flex:0 0 96px; font:600 11px Karla; letter-spacing:.13em; text-transform:uppercase; color:#8a9490; padding-top:3px">Gate</span><span style="width: 222px; height: 62px">Tell the gate house guard you are in <strong>Sunday House 6</strong>. Everyone gets cleared the same way.</span></div>
     <div style="display:flex; gap:10px"><span style="flex:0 0 96px; font:600 11px Karla; letter-spacing:.13em; text-transform:uppercase; color:#8a9490; padding-top:3px">Golf</span><span>Two rounds Friday, two rounds Saturday. At a minimum. Putting Park lit up every night.</span></div>
   </div>
-  <h2 style="font-family:Bitter,Georgia,serif; font-size:19px; margin:26px 0 8px; padding-bottom:5px; border-bottom:1px solid #ddd8cc">Course &amp; Property Links</h2>
-  <div style="display:grid; grid-template-columns:1fr 1fr; gap:5px 34px; font-size:14px; line-height:1.5">
 
+  
+  
+
+  <h2 style="font-family:Bitter,Georgia,serif; font-size:19px; margin:26px 0 8px; padding-bottom:5px; border-bottom:1px solid #ddd8cc">Course &amp; Property Links</h2><div style="display: grid; grid-template-columns: 1fr 1fr; gap: 5px 34px; font-size: 14px; line-height: 1.5; width: 683px; height: 44px">
+    
     <div><a href="https://www.bootranch.com/golf/">Hole-by-hole tour</a> — homework before Thursday</div>
-
+    
     <div><a href="https://www.bootranch.com/wp-content/uploads/2025/04/SH6-on-Master-Map.jpg">Sunday House 6, circled on the master map</a></div>
-    <div><a href="map.html">Route map</a> — three drives, the gate, grocery stop</div>
-  </div>
-  <h2 style="font-family:Bitter,Georgia,serif; font-size:19px; margin:26px 0 8px; padding-bottom:5px; border-bottom:1px solid #ddd8cc">The Roster</h2>
+    
+  </div><h2 style="font-family:Bitter,Georgia,serif; font-size:19px; margin:26px 0 8px; padding-bottom:5px; border-bottom:1px solid #ddd8cc">The Roster</h2>
   <table style="width:100%; border-collapse:collapse; font-size:14.5px">
     <thead>
       <tr>
@@ -104,6 +131,7 @@
     </tbody>
   </table>
   <p style="font-size:12.5px; color:#5c6660; margin:8px 0 0">Send GHIN indexes to Daniel by Sept 25 and he will post course handicaps off the Boot Ranch card. Strokes played at 100% of the difference, low man to scratch.</p>
+
   <h2 style="font-family:Bitter,Georgia,serif; font-size:19px; margin:26px 0 8px; padding-bottom:5px; border-bottom:1px solid #ddd8cc">Getting There</h2>
   <div style="display:grid; grid-template-columns:1fr 1fr; gap:28px; font-size:13.5px; line-height:1.5; break-inside:avoid">
     <div>
@@ -114,9 +142,10 @@
       <div style="font:700 11.5px Karla; letter-spacing:.1em; text-transform:uppercase; color:#9a5b2a; margin-bottom:6px">Terrell Hills · 80 mi · ~1:35<br><span style="color:#8a9490; letter-spacing:.06em">Daniel</span></div>
       <p style="margin:0">I-410 West to I-10 West toward Boerne. Past Boerne take <strong>Exit 524 for Comfort</strong>, then US-87 North into Fredericksburg. Turn <strong>right on N. Llano St / TX-16</strong> and run 5 miles north. Boot Ranch Circle is on the left.</p>
     </div>
-
+    
   </div>
   <p style="font-size:13px; color:#5c6660; margin:12px 0 0; break-inside:avoid"><strong style="color: rgb(29, 42, 36);">Grocery stop:</strong> H-E-B on E. Main Street (US-290) in Fredericksburg, about 10 minutes before the gate. Phil will touch base prior to 10/1 on the list.&nbsp; |&nbsp;&nbsp;<strong style="color: rgb(29, 42, 36);">Fajita pickup:</strong> Los Tios is on the way in for whoever comes through last (if this is what we want for dinner).</p>
+
   <h2 style="font-family:Bitter,Georgia,serif; font-size:19px; margin:26px 0 8px; padding-bottom:5px; border-bottom:1px solid #ddd8cc">Daylight &amp; Tee Times</h2>
   <table style="width:100%; border-collapse:collapse; font-size:14px">
     <thead>
@@ -160,6 +189,7 @@
     </tbody>
   </table>
   <p style="font-size:12.5px; color:#5c6660; margin:8px 0 0">Four players riding, no outside groups. An 8:00 AM tee finishes around noon, lunch at 12:00, back out at 12:40, done by 4:40 — two hours of light left for the lake, the pickle ball courts, or a drink before somebody makes dinner. Nothing later than a 3:00 PM start gets 18 holes in before dark, so there is room for the schedule to slip.</p>
+
   <h2 style="font-family:Bitter,Georgia,serif; font-size:19px; margin:26px 0 10px; padding-bottom:5px; border-bottom:1px solid #ddd8cc; break-before:page">Food &amp; The Pace of the Trip</h2>
   <p style="font-size:14px; line-height:1.6; margin:0 0 10px">Two instincts in this group: cook every meal at the house, or let the club serve us. Both are good and we can have both without arguing about it on Thursday night. The plan below splits it — one pickup night, one house dinner, one served dinner — and everything golf-adjacent (tacos, box lunches, men's grill) comes from the club so nobody is cooking before a round.</p>
   <div style="display:grid; grid-template-columns:1fr 1fr; gap:20px; font-size:13.5px; line-height:1.55; break-inside:avoid">
@@ -178,6 +208,7 @@
     </div>
   </div>
   <p style="font-size:12.5px; color:#5c6660; margin:12px 0 0">Host's call to make by mid-September, since the patio and the BBQ both need a heads-up.</p>
+
   <h2 style="font-family:Bitter,Georgia,serif; font-size:19px; margin:26px 0 10px; padding-bottom:5px; border-bottom:1px solid #ddd8cc">Fringe Time</h2>
   <div style="display:grid; grid-template-columns:1fr 1fr; gap:6px 24px; font-size:13.5px; line-height:1.55; break-inside:avoid">
     <div style="display:flex; gap:10px"><span style="flex:0 0 96px; font:600 11px Karla; letter-spacing:.13em; text-transform:uppercase; color:#8a9490; padding-top:3px">Lake</span><span>Short cart ride. Lakes are stocked. Rods and bait and stuff are at the lake.</span></div>
@@ -185,130 +216,159 @@
     <div style="display:flex; gap:10px"><span style="flex:0 0 96px; font:600 11px Karla; letter-spacing:.13em; text-transform:uppercase; color:#8a9490; padding-top:3px">Putting Park</span><span>Four-minute cart ride, lit after dark. On the table every night.</span></div>
     <div style="display:flex; gap:10px"><span style="flex:0 0 96px; font:600 11px Karla; letter-spacing:.13em; text-transform:uppercase; color:#8a9490; padding-top:3px">Enchanted Rock</span><span>30 minutes north on TX-965. Worth it just to look at. Day passes sell out, so reserve one if you are going Thursday.</span></div>
   </div>
+
   <h2 style="font-family:Bitter,Georgia,serif; font-size:22px; margin:34px 0 4px; break-before:page">Day 1 — Thursday, Oct 1</h2>
   <div style="height:2px; background:#1d2a24; margin-bottom:14px"></div>
   <p style="font-size:13px; color:#5c6660; margin:-4px 0 14px">Arrival day, loosely held. The only semi-fixed item is the Putting Park after dinner.</p>
+
   <div style="break-inside:avoid; margin-bottom:16px">
     <div style="font:600 16px Bitter,Georgia,serif; margin-bottom:6px">9:00 AM — Host rolls out of Houston</div>
     <div style="display:flex; gap:12px; font-size:14px; line-height:1.5"><span style="flex:0 0 108px; font:600 11px Karla; letter-spacing:.13em; text-transform:uppercase; color:#8a9490; padding-top:3px">Notes</span><span>Kids to school first, then straight out I-10. Through the gate around 1:00 PM.</span></div>
   </div>
+
   <div style="break-inside:avoid; margin-bottom:16px">
     <div style="font:600 16px Bitter,Georgia,serif; margin-bottom:6px">2:00 PM (?)— Host's afternoon, open invitation</div>
     <div style="display:flex; gap:12px; font-size:14px; line-height:1.5"><span style="flex:0 0 108px; font:600 11px Karla; letter-spacing:.13em; text-transform:uppercase; color:#8a9490; padding-top:3px">Option 1</span><span>Play a round. A 2:00 PM tee is in by 5:45, comfortably before dark.</span></div>
     <div style="display:flex; gap:12px; font-size:14px; line-height:1.5"><span style="flex:0 0 108px; font:600 11px Karla; letter-spacing:.13em; text-transform:uppercase; color:#8a9490; padding-top:3px">Option 2</span><span>Practice park and the range, easy afternoon.</span></div>
     <div style="display:flex; gap:12px; font-size:14px; line-height:1.5"><span style="flex:0 0 108px; font:600 11px Karla; letter-spacing:.13em; text-transform:uppercase; color:#8a9490; padding-top:3px">Option 3</span><span>Drive up to Enchanted Rock. Anyone who gets in early is welcome to join.</span></div>
   </div>
+
   <div style="break-inside:avoid; margin-bottom:16px">
     <div style="font:600 16px Bitter,Georgia,serif; margin-bottom:6px">Afternoon — Others arrive</div>
     <div style="display:flex; gap:12px; font-size:14px; line-height:1.5"><span style="flex:0 0 108px; font:600 11px Karla; letter-spacing:.13em; text-transform:uppercase; color:#8a9490; padding-top:3px">Gate house</span><span>Tell the guard you are in <strong>Sunday House 6</strong>.</span></div>
     <div style="display:flex; gap:12px; font-size:14px; line-height:1.5"><span style="flex:0 0 108px; font:600 11px Karla; letter-spacing:.13em; text-transform:uppercase; color:#8a9490; padding-top:3px">On the way in</span><span>H-E-B for the week's food and the cooler; if someone is coming around dinner time, they can grab the fajitas in town (if that is the call).</span></div>
     <div style="display:flex; gap:12px; font-size:14px; line-height:1.5"><span style="flex:0 0 108px; font:600 11px Karla; letter-spacing:.13em; text-transform:uppercase; color:#8a9490; padding-top:3px">At the house</span><span>Everyone has his own room.</span></div>
   </div>
+
   <div style="break-inside:avoid; margin-bottom:16px">
     <div style="font:600 16px Bitter,Georgia,serif; margin-bottom:6px">6:30 PM — Dinner, nobody cooking</div>
     <div style="display:flex; gap:12px; font-size:14px; line-height:1.5"><span style="flex:0 0 108px; font:600 11px Karla; letter-spacing:.13em; text-transform:uppercase; color:#8a9490; padding-top:3px">Option 1</span><span>BBQ picked up at the club, eat at the house. <b>Need to order by Monday.</b></span></div>
     <div style="display:flex; gap:12px; font-size:14px; line-height:1.5"><span style="flex:0 0 108px; font:600 11px Karla; letter-spacing:.13em; text-transform:uppercase; color:#8a9490; padding-top:3px">Option 2</span><span>Fajitas from Los Tios, grabbed on the drive in.</span></div>
   </div>
+
   <div style="break-inside:avoid; margin-bottom:16px">
     <div style="font:600 16px Bitter,Georgia,serif; margin-bottom:6px">8:15 PM — Putting Park under the lights</div>
     <div style="display:flex; gap:12px; font-size:14px; line-height:1.5"><span style="flex:0 0 108px; font:600 11px Karla; letter-spacing:.13em; text-transform:uppercase; color:#8a9490; padding-top:3px">Getting there</span><span>Four-minute cart ride from the house.</span></div>
     <div style="display:flex; gap:12px; font-size:14px; line-height:1.5"><span style="flex:0 0 108px; font:600 11px Karla; letter-spacing:.13em; text-transform:uppercase; color:#8a9490; padding-top:3px">Game</span><span>Putting Wolf, 18 holes. Winner picks the Friday morning pairings. No Cup points.</span></div>
   </div>
+
   <h2 style="font-family:Bitter,Georgia,serif; font-size:22px; margin:34px 0 4px">Day 2 — Friday, Oct 2</h2>
   <div style="height:2px; background:#1d2a24; margin-bottom:14px"></div>
+
   <div style="break-inside:avoid; margin-bottom:16px">
     <div style="font:600 16px Bitter,Georgia,serif; margin-bottom:6px">7:15 AM — Breakfast tacos in the clubhouse</div>
     <div style="display:flex; gap:12px; font-size:14px; line-height:1.5"><span style="flex:0 0 108px; font:600 11px Karla; letter-spacing:.13em; text-transform:uppercase; color:#8a9490; padding-top:3px">Notes</span><span>Tacos and coffee to go from the men's grill.&nbsp;</span></div>
     <div style="display:flex; gap:12px; font-size:14px; line-height:1.5"><span style="flex:0 0 108px; font:600 11px Karla; letter-spacing:.13em; text-transform:uppercase; color:#8a9490; padding-top:3px">Order lunch</span><span>Place box lunch orders if we are eating on the course.</span></div>
   </div>
+
   <div style="break-inside:avoid; margin-bottom:16px">
     <div style="font:600 16px Bitter,Georgia,serif; margin-bottom:6px">8:00 AM — Round 1</div>
     <div style="display:flex; gap:12px; font-size:14px; line-height:1.5"><span style="flex:0 0 108px; font:600 11px Karla; letter-spacing:.13em; text-transform:uppercase; color:#8a9490; padding-top:3px">Format</span><span>Four-ball match, 2 v 2. Pairings decided by the Thursday night putting winner.</span></div>
     <div style="display:flex; gap:12px; font-size:14px; line-height:1.5"><span style="flex:0 0 108px; font:600 11px Karla; letter-spacing:.13em; text-transform:uppercase; color:#8a9490; padding-top:3px">Points</span><span>3 points to each member of the winning team, 1.5 each if halved.</span></div>
   </div>
+
   <div style="break-inside:avoid; margin-bottom:16px">
     <div style="font:600 16px Bitter,Georgia,serif; margin-bottom:6px">12:00 PM — Lunch</div>
     <div style="display:flex; gap:12px; font-size:14px; line-height:1.5"><span style="flex:0 0 108px; font:600 11px Karla; letter-spacing:.13em; text-transform:uppercase; color:#8a9490; padding-top:3px">Men's grill</span><span>Sit-down between rounds. We have the time for it.</span></div>
     <div style="display:flex; gap:12px; font-size:14px; line-height:1.5"><span style="flex:0 0 108px; font:600 11px Karla; letter-spacing:.13em; text-transform:uppercase; color:#8a9490; padding-top:3px">OR...</span><span>Box lunches at Metzger Market between Holes 8 and 9. Tables out there.</span></div>
   </div>
+
   <div style="break-inside:avoid; margin-bottom:16px">
     <div style="font:600 16px Bitter,Georgia,serif; margin-bottom:6px">12:40 PM — Round 2</div>
     <div style="display:flex; gap:12px; font-size:14px; line-height:1.5"><span style="flex:0 0 108px; font:600 11px Karla; letter-spacing:.13em; text-transform:uppercase; color:#8a9490; padding-top:3px">Format</span><span>Sixes — partners rotate every six holes, so everyone plays with everyone.</span></div>
     <div style="display:flex; gap:12px; font-size:14px; line-height:1.5"><span style="flex:0 0 108px; font:600 11px Karla; letter-spacing:.13em; text-transform:uppercase; color:#8a9490; padding-top:3px">Points</span><span>1 point per six-hole segment to each winning partner; 0.5 if halved.</span></div>
     <div style="display:flex; gap:12px; font-size:14px; line-height:1.5"><span style="flex:0 0 108px; font:600 11px Karla; letter-spacing:.13em; text-transform:uppercase; color:#8a9490; padding-top:3px">Finish</span><span>In by 4:40 PM.</span></div>
   </div>
+
   <div style="break-inside:avoid; margin-bottom:16px">
     <div style="font:600 16px Bitter,Georgia,serif; margin-bottom:6px">5:00 PM — Potential: fishing at the lake</div>
     <div style="display:flex; gap:12px; font-size:14px; line-height:1.5"><span style="flex:0 0 108px; font:600 11px Karla; letter-spacing:.13em; text-transform:uppercase; color:#8a9490; padding-top:3px">Notes</span><span>Cart down with drinks. Sunset is 7:19.&nbsp;</span></div>
   </div>
+
   <div style="break-inside:avoid; margin-bottom:16px">
     <div style="font:600 16px Bitter,Georgia,serif; margin-bottom:6px">Dinner — At the house</div>
     <div style="display:flex; gap:12px; font-size:14px; line-height:1.5"><span style="flex:0 0 108px; font:600 11px Karla; letter-spacing:.13em; text-transform:uppercase; color:#8a9490; padding-top:3px">Notes</span><span>Phil and JP tell us what to do. Losers of Round 2 on cleanup.</span></div>
     <div style="display:flex; gap:12px; font-size:14px; line-height:1.5"><span style="flex:0 0 108px; font:600 11px Karla; letter-spacing:.13em; text-transform:uppercase; color:#8a9490; padding-top:3px">After</span><span>Putting Park, lights on, optional. Daniel reads out the standings.</span></div>
   </div>
+
   <h2 style="font-family:Bitter,Georgia,serif; font-size:22px; margin:34px 0 4px">Day 3 — Saturday, Oct 3</h2>
   <div style="height:2px; background:#1d2a24; margin-bottom:14px"></div>
+
   <div style="break-inside:avoid; margin-bottom:16px">
     <div style="font:600 16px Bitter,Georgia,serif; margin-bottom:6px">7:15 AM — Breakfast tacos in the clubhouse</div>
     <div style="display:flex; gap:12px; font-size:14px; line-height:1.5"><span style="flex:0 0 108px; font:600 11px Karla; letter-spacing:.13em; text-transform:uppercase; color:#8a9490; padding-top:3px">Notes</span><span>Same as Friday. Order today's lunches on the way through.</span></div>
   </div>
+
   <div style="break-inside:avoid; margin-bottom:16px">
     <div style="font:600 16px Bitter,Georgia,serif; margin-bottom:6px">8:00 AM — Round 3</div>
     <div style="display:flex; gap:12px; font-size:14px; line-height:1.5"><span style="flex:0 0 108px; font:600 11px Karla; letter-spacing:.13em; text-transform:uppercase; color:#8a9490; padding-top:3px">Format</span><span>Singles. Two head-to-head matches; the Friday points leader picks his partner.</span></div>
     <div style="display:flex; gap:12px; font-size:14px; line-height:1.5"><span style="flex:0 0 108px; font:600 11px Karla; letter-spacing:.13em; text-transform:uppercase; color:#8a9490; padding-top:3px">Points</span><span>3 points for the win, 1.5 for a half, plus 1 to the low net score in the group.</span></div>
   </div>
+
   <div style="break-inside:avoid; margin-bottom:16px">
     <div style="font:600 16px Bitter,Georgia,serif; margin-bottom:6px">12:00 PM — Lunch</div>
     <div style="display:flex; gap:12px; font-size:14px; line-height:1.5"><span style="flex:0 0 108px; font:600 11px Karla; letter-spacing:.13em; text-transform:uppercase; color:#8a9490; padding-top:3px">Notes</span><span>Men's grill or box lunches, same as Friday. Check the kickoff times over lunch.</span></div>
   </div>
+
   <div style="break-inside:avoid; margin-bottom:16px">
     <div style="font:600 16px Bitter,Georgia,serif; margin-bottom:6px">12:40 PM — Round 4</div>
     <div style="display:flex; gap:12px; font-size:14px; line-height:1.5"><span style="flex:0 0 108px; font:600 11px Karla; letter-spacing:.13em; text-transform:uppercase; color:#8a9490; padding-top:3px">Format</span><span>Wolf, full 18. Lone Wolf doubles the hole; blind Wolf off the tee triples it.</span></div>
     <div style="display:flex; gap:12px; font-size:14px; line-height:1.5"><span style="flex:0 0 108px; font:600 11px Karla; letter-spacing:.13em; text-transform:uppercase; color:#8a9490; padding-top:3px">Points</span><span>Wolf standings convert to Cup points: 3 for first, 2 second, 1 third.</span></div>
     <div style="display:flex; gap:12px; font-size:14px; line-height:1.5"><span style="flex:0 0 108px; font:600 11px Karla; letter-spacing:.13em; text-transform:uppercase; color:#8a9490; padding-top:3px">Finish</span><span>Done by 4:40 PM.</span></div>
   </div>
+
   <div style="break-inside:avoid; margin-bottom:16px">
     <div style="font:600 16px Bitter,Georgia,serif; margin-bottom:6px">5:00 PM — College football</div>
     <div style="display:flex; gap:12px; font-size:14px; line-height:1.5"><span style="flex:0 0 108px; font:600 11px Karla; letter-spacing:.13em; text-transform:uppercase; color:#8a9490; padding-top:3px">On the board</span><span><strong>Big Ten:</strong> Nebraska hosts Maryland at Memorial Stadium for homecoming — the conference has it kicking off no later than 4:00 PM CT. <strong>SEC:</strong> Arkansas at Texas A&amp;M (Kyle Field) · Auburn at Tennessee · Alabama at Mississippi State · Florida at Missouri. Texas is on a bye — Red River is the following Saturday.</span></div>
     <div style="display:flex; gap:12px; font-size:14px; line-height:1.5"><span style="flex:0 0 108px; font:600 11px Karla; letter-spacing:.13em; text-transform:uppercase; color:#8a9490; padding-top:3px">Kickoffs</span><span>Most windows are still TBD this far out — the SEC posts times about two weeks ahead, the Big Ten six to twelve days. Check the week before and slide the afternoon round if Nebraska–Maryland lands early.</span></div>
   </div>
+
   <div style="break-inside:avoid; margin-bottom:16px">
     <div style="font:600 16px Bitter,Georgia,serif; margin-bottom:6px">Dinner — We have options.</div>
     <div style="display:flex; gap:12px; font-size:14px; line-height:1.5"><span style="flex:0 0 108px; font:600 11px Karla; letter-spacing:.13em; text-transform:uppercase; color:#8a9490; padding-top:3px">Notes</span><span>Private clubhouse patio with its own fireplace. Order a bottle, get served.</span></div>
     <div style="display:flex; gap:12px; font-size:14px; line-height:1.5"><span style="flex:0 0 108px; font:600 11px Karla; letter-spacing:.13em; text-transform:uppercase; color:#8a9490; padding-top:3px">Or</span><span>Dinner at the house if the group would rather stay in.</span></div>
     <div style="display:flex; gap:12px; font-size:14px; line-height:1.5"><span style="flex:0 0 108px; font:600 11px Karla; letter-spacing:.13em; text-transform:uppercase; color:#8a9490; padding-top:3px">After</span><span>Putting Park closer. Last chance to settle a tie.</span></div>
   </div>
+
   <h2 style="font-family:Bitter,Georgia,serif; font-size:22px; margin:34px 0 4px">Day 4 — Sunday, Oct 4</h2>
   <div style="height:2px; background:#1d2a24; margin-bottom:14px"></div>
+
   <div style="break-inside:avoid; margin-bottom:16px">
     <div style="font:600 16px Bitter,Georgia,serif; margin-bottom:6px">8:00 AM — 9 holes, 18 holes, pickle ball, or the road</div>
     <div style="display:flex; gap:12px; font-size:14px; line-height:1.5"><span style="flex:0 0 108px; font:600 11px Karla; letter-spacing:.13em; text-transform:uppercase; color:#8a9490; padding-top:3px">Golf</span><span>Matty will probably make the most of things and get in another round before heading home. Any and all are welcome to join.</span></div>
     <div style="display:flex; gap:12px; font-size:14px; line-height:1.5"></div>
     <div style="display:flex; gap:12px; font-size:14px; line-height:1.5"><span style="flex:0 0 108px; font:600 11px Karla; letter-spacing:.13em; text-transform:uppercase; color:#8a9490; padding-top:3px">Decide</span><span>Saturday at dinner, so the host can confirm or drop the tee time.</span></div>
   </div>
-  <div style="break-inside:avoid; margin-bottom:16px">
 
+  <div style="break-inside:avoid; margin-bottom:16px">
+    
     <div style="display:flex; gap:12px; font-size:14px; line-height:1.5"></div>
   </div>
+
   <h2 style="font-family:Bitter,Georgia,serif; font-size:22px; margin:34px 0 4px; break-before:page">The Games</h2>
   <div style="height:2px; background:#1d2a24; margin-bottom:14px"></div>
   <p style="font-size:14px; line-height:1.6; margin:0 0 16px">Four rounds, four formats, one running total. Everyone partners everyone by Saturday afternoon, and no single bad round puts anybody out of it. Daniel keeps the card and reads the standings at dinner. All matches played at handicap, 100% of the difference off the low man.</p>
+
   <div style="break-inside:avoid; margin-bottom:18px">
     <div style="display:flex; align-items:baseline; gap:10px; margin-bottom:5px"><span style="font:700 11px Karla; letter-spacing:.14em; text-transform:uppercase; color:#9a5b2a">Round 1 · Fri AM</span><span style="font:600 17px Bitter,Georgia,serif">Four-Ball Match</span><span style="font-size:12.5px; color:#8a9490">3 points available each</span></div>
     <p style="margin:0; font-size:13.5px; line-height:1.55">Two vs. two; match play; best net ball of the partners on every hole. Pairings decided by whoever wins Thursday night's putting. <strong>3 points to each man on the winning side, 1.5 each if the match is halved.</strong> Press rules: none. Keep it simple on day one.</p>
   </div>
+
   <div style="break-inside:avoid; margin-bottom:18px">
     <div style="display:flex; align-items:baseline; gap:10px; margin-bottom:5px"><span style="font:700 11px Karla; letter-spacing:.14em; text-transform:uppercase; color:#9a5b2a">Round 2 · Fri PM</span><span style="font:600 17px Bitter,Georgia,serif">Sixes</span><span style="font-size:12.5px; color:#8a9490">3 points available each</span></div>
     <p style="margin:0; font-size:13.5px; line-height:1.55">Three six-hole matches with rotating partners: holes 1–6, 7–12, 13–18. Every man partners every other man once. Each six-hole segment is its own best net ball match. <strong>1 point to each winning partner per segment, 0.5 each if halved.</strong>&nbsp;</p>
   </div>
+
   <div style="break-inside:avoid; margin-bottom:18px">
     <div style="display:flex; align-items:baseline; gap:10px; margin-bottom:5px"><span style="font:700 11px Karla; letter-spacing:.14em; text-transform:uppercase; color:#9a5b2a">Round 3 · Sat AM</span><span style="font:600 17px Bitter,Georgia,serif">Singles</span><span style="font-size:12.5px; color:#8a9490">4 points available each</span></div>
     <p style="margin:0; font-size:13.5px; line-height:1.55">Two head-to-head matches, net. The Friday points leader picks his opponent; the other two play each other. <strong>3 points for winning your match, 1.5 for a half, plus 1 bonus point to the low net score of the whole group.</strong> This is the round where somebody in last place can climb back in.</p>
   </div>
+
   <div style="break-inside:avoid; margin-bottom:18px">
     <div style="display:flex; align-items:baseline; gap:10px; margin-bottom:5px"><span style="font:700 11px Karla; letter-spacing:.14em; text-transform:uppercase; color:#9a5b2a">Round 4 · Sat PM</span><span style="font:600 17px Bitter,Georgia,serif">Wolf</span><span style="font-size:12.5px; color:#8a9490">3 points to the winner</span></div>
     <p style="margin:0; font-size:13.5px; line-height:1.55">Rotating Wolf order off every tee. The Wolf picks a partner after watching the other three drive, or goes <strong>Lone Wolf</strong> for double, or declares <strong>Blind Wolf</strong> before anyone hits for triple. Hole values in wolf points; keep the tally on the card. <strong>At the end of the round the wolf standings convert to Cup points: 3 for first, 2 for second, 1 for third.</strong> Best format to finish on — a good closing stretch can flip the whole trip.</p>
   </div>
+
   <h3 style="font-family:Bitter,Georgia,serif; font-size:16px; margin:26px 0 8px">The Card</h3>
   <table style="width:100%; border-collapse:collapse; font-size:13.5px">
     <thead>
@@ -364,11 +424,12 @@
     </tbody>
   </table>
   <p style="font-size:12.5px; color:#5c6660; margin:8px 0 0">Ties settled Sunday morning at the Putting Park: one hole, sudden death, everyone watching.</p>
+
   <h3 style="font-family:Bitter,Georgia,serif; font-size:16px; margin:26px 0 8px">The Purse</h3>
   <div style="display:grid; grid-template-columns:1fr 1fr; gap:22px; font-size:13.5px; line-height:1.55; break-inside:avoid">
     <div>
       <div style="font:700 11.5px Karla; letter-spacing:.1em; text-transform:uppercase; color:#2f5d4a; margin-bottom:6px">Buy-in</div>
-
+      
       <p style="margin:0 0 8px">$200 a man; $800 in the pot</p><table style="width:100%; border-collapse:collapse; font-size:13.5px">
         <tbody>
           <tr><td style="padding:5px 0; border-top:1px solid #ddd8cc">1st</td><td style="padding:5px 0; border-top:1px solid #ddd8cc; text-align:right; font-weight:700">$440</td></tr>
