@@ -43,6 +43,10 @@
     .sheet div[style*="break-inside:avoid"][style*="margin-bottom:16px"],
     .sheet div[style*="break-inside: avoid"][style*="margin-bottom: 16px"] {
       border-top: 1px solid #ddd8cc !important; padding-top: 12px !important; margin-bottom: 18px !important; }
+    /* first item of a day sits right under the day rule (or its intro line) — no divider */
+    .sheet div[style*="height:2px"] + div[style*="break-inside:avoid"],
+    .sheet div[style*="height:2px"] + p + div[style*="break-inside:avoid"] {
+      border-top: none !important; padding-top: 0 !important; }
     .sheet div[style*="font:600 16px Bitter"],
     .sheet div[style*="font: 600 16px Bitter"] {
       font-size: 17px !important; color: #2f5d4a !important; margin-bottom: 9px !important; }
@@ -81,9 +85,9 @@
   </div>
 
   <div style="display:grid; grid-template-columns:1fr 1fr; gap:6px 34px; margin:18px 0 4px; font-size:14.5px; line-height:1.5">
-    <div style="display:flex; gap:10px"><span style="flex:0 0 96px; font:600 11px Karla; letter-spacing:.13em; text-transform:uppercase; color:#8a9490; padding-top:3px">Club</span><span>Boot Ranch, 77 Boot Ranch Circle, Fredericksburg, TX 78624<br>(830) 997-6200</span></div>
+    <div style="display:flex; gap:10px"><span style="flex:0 0 96px; font:600 11px Karla; letter-spacing:.13em; text-transform:uppercase; color:#8a9490; padding-top:3px">Club</span><span><b>Boot Ranch</b>, 77 Boot Ranch Circle, Fredericksburg, TX 78624<br><b><a href="https://maps.app.goo.gl/6eXpGz9qFtswGACx7" target="_blank" rel="noopener">Directions</a></b>.</span></div>
     <div style="display:flex; gap:10px"><span style="flex:0 0 96px; font:600 11px Karla; letter-spacing:.13em; text-transform:uppercase; color:#8a9490; padding-top:3px">Lodging</span><span><strong>Sunday House 6.</strong> Everyone gets his own room. Two golf shuttle carts at the house.</span></div>
-    <div style="display:flex; gap:10px"><span style="flex:0 0 96px; font:600 11px Karla; letter-spacing:.13em; text-transform:uppercase; color:#8a9490; padding-top:3px">Gate</span><span>Use the left lane. Tell the gate house guard you are headed to <strong><a href="https://maps.app.goo.gl/6eXpGz9qFtswGACx7" target="_blank" rel="noopener">Sunday House 6</a></strong>. Your name should be on a list.</span></div>
+    <div style="display:flex; gap:10px"><span style="flex:0 0 96px; font:600 11px Karla; letter-spacing:.13em; text-transform:uppercase; color:#8a9490; padding-top:3px">Gate</span><span>Use the left lane. Tell the gate house guard you are headed to <strong>Sunday House 6</strong>. Your name should be on a list.</span></div>
     <div style="display:flex; gap:10px"><span style="flex:0 0 96px; font:600 11px Karla; letter-spacing:.13em; text-transform:uppercase; color:#8a9490; padding-top:3px">Golf</span><span>Two rounds Friday, two rounds Saturday. At a minimum. Putting Park lit up every night.</span></div>
   </div>
 
@@ -153,13 +157,13 @@
     </div>
     <div>
       <div style="font:700 11.5px Karla; letter-spacing:.1em; text-transform:uppercase; color:#9a5b2a; margin-bottom:6px">Terrell Hills · 80 mi · ~1:35<br><span style="color:#8a9490; letter-spacing:.06em">Daniel</span></div>
-      <p style="margin:0">I-410 West to I-10 West toward Boerne. Past Boerne take <strong>Exit 524 for Comfort</strong>, then US-87 North into Fredericksburg. Turn left onto Main St. then&nbsp;<strong style="">right on N. Milam St / Ranch Rd 965</strong>&nbsp;and run 5 miles north. Boot Ranch Circle is on the left.</p>
+      <p style="margin:0">I-410 West to I-10 West toward Boerne. Past Boerne take <strong>Exit 524 for Comfort</strong>, then US-87 North into Fredericksburg. Turn left onto Main St. then&nbsp;<strong style="">right on N. Milam St / Ranch Rd. 965</strong>&nbsp;and run 5 miles north. Boot Ranch Circle is on the left.</p>
     </div>
     
   </div>
   <div style="margin:18px 0 0; break-inside:avoid">
     <div style="font:700 11.5px Karla; letter-spacing:.1em; text-transform:uppercase; color:#2f5d4a; margin-bottom:6px; text-decoration:underline; text-underline-offset:3px">Once you are inside the gate</div>
-    <p style="margin:0; font-size:13.5px; line-height:1.65">Once you turn left off of <b>Ranch Rd 965</b> into the property, you will head west toward the Gate House on <b>Boot Ranch Circle</b>. You might spot some longhorns on your right before you get to the Gate House #hook 'em. You will follow the same road for about a mile — you'll pass a small lake, some homes, the Ranch Club (pool), Clubhouse Village, and a parking lot. Just past the parking lot, there are a few homes on the left. Those are Sunday Houses 1-3. Just past <em>those</em>, look for a sign on the left that says Sunday Houses 4-7. Turn left before that sign and follow the gravel road down and to the right. Sunday House 6 will be the second to the last house. <a href="https://maps.app.goo.gl/6eXpGz9qFtswGACx7" target="_blank" rel="noopener">This pin</a> is right on top of the house.</p>
+    <p style="margin:0; font-size:13.5px; line-height:1.65">Once you turn left off of <b>Ranch Rd 965</b> into the property, you will head west toward the Gate House on <b>Boot Ranch Circle</b>. You might spot some longhorns on your right before you get to the Gate House #hook 'em. You will follow the same road for about a mile — you'll pass a small lake, some homes, the Ranch Club (pool), Clubhouse Village, and a parking lot. Just past the parking lot, there are a few homes on the left. Those are Sunday Houses 1-3. Just past <em>those</em>, look for a sign on the left that says Sunday Houses 4-7. Turn left before that sign and follow the gravel road down and to the right. Sunday House 6 will be the second to the last house.</p>
   </div>
   <p style="font-size:13px; line-height:1.65; color:#5c6660; margin:12px 0 0; break-inside:avoid"><strong style="color: rgb(29, 42, 36);">Grocery stop:</strong> H-E-B on E. Main Street (US-290) in Fredericksburg, about 10 minutes before the gate. Phil will touch base prior to 10/1 on the list.&nbsp; |&nbsp;&nbsp;<strong style="color: rgb(29, 42, 36);">Fajita pickup:</strong> Los Tios is on the way in for whoever comes through last (if this is what we want for dinner).</p>
 
@@ -170,7 +174,7 @@
         <th style="text-align:left; font:600 10.5px Karla; letter-spacing:.13em; text-transform:uppercase; color:#8a9490; padding:0 18px 7px 0">Day</th>
         <th style="text-align:left; font:600 10.5px Karla; letter-spacing:.13em; text-transform:uppercase; color:#8a9490; padding:0 18px 7px 0">Sunrise</th>
         <th style="text-align:left; font:600 10.5px Karla; letter-spacing:.13em; text-transform:uppercase; color:#8a9490; padding:0 18px 7px 0">Sunset</th>
-        <th style="text-align:left; font:600 10.5px Karla; letter-spacing:.13em; text-transform:uppercase; color:#8a9490; padding:0 18px 7px 0">Recommended tees</th>
+        <th style="text-align:left; font:600 10.5px Karla; letter-spacing:.13em; text-transform:uppercase; color:#8a9490; padding:0 18px 7px 0">Tee times</th>
         <th style="text-align:left; font:600 10.5px Karla; letter-spacing:.13em; text-transform:uppercase; color:#8a9490; padding:0 18px 7px 0">Done by</th>
       </tr>
     </thead>
@@ -179,7 +183,7 @@
         <td style="padding:8px 18px 8px 0; border-top:1px solid #ddd8cc; font-weight:600">Thu, Oct 1</td>
         <td style="padding:8px 18px 8px 0; border-top:1px solid #ddd8cc; color:#8a9490">N/A&nbsp;</td>
         <td style="padding:8px 18px 8px 0; border-top:1px solid #ddd8cc">7:20 PM</td>
-        <td style="padding: 8px 18px 8px 0; border-top: 1px solid #ddd8cc">Matty may play in the afternoon; Putting Park after dinner</td>
+        <td style="padding: 8px 18px 8px 0; border-top: 1px solid #ddd8cc">Matty may play in the afternoon</td>
         <td style="padding:8px 18px 8px 0; border-top:1px solid #ddd8cc; color:#5c6660">5:45 PM off a 2:00 tee</td>
       </tr>
       <tr>
@@ -200,12 +204,12 @@
         <td style="padding: 8px 18px 8px 0; border-top: 1px solid #ddd8cc; font-weight: 600; width: 70px; height: 19px">Sun, Oct 4</td>
         <td style="padding:8px 18px 8px 0; border-top:1px solid #ddd8cc">7:31 AM</td>
         <td style="padding:8px 18px 8px 0; border-top:1px solid #ddd8cc; color:#8a9490">N/A</td>
-        <td style="padding:8px 18px 8px 0; border-top:1px solid #ddd8cc; font-weight:600">8:00 AM if anyone would like</td>
+        <td style="padding:8px 18px 8px 0; border-top:1px solid #ddd8cc; font-weight:600">8:00 AM <span style="font-weight: normal;">if anyone wants to join</span></td>
         <td style="padding:8px 18px 8px 0; border-top:1px solid #ddd8cc; color:#5c6660">12:00 PM</td>
       </tr>
     </tbody>
   </table>
-  <p style="font-size:12.5px; line-height:1.65; color:#5c6660; margin:8px 0 0">Four players riding, no outside groups. An 8:00 AM tee finishes around noon, lunch at 12:00, back out at 12:40, done by 4:40 — two hours of light left for the lake, the pickle ball courts, or a drink before somebody makes dinner. Nothing later than a 3:00 PM start gets 18 holes in before dark, so there is room for the schedule to slip.</p>
+  <p style="font-size:12.5px; line-height:1.65; color:#5c6660; margin:8px 0 0">Riding carts; walking is a bad idea. An 8:00 AM tee finishes around noon, lunch at 12:00, back out at 12:40, done by 4:40 — two hours of light left for the lake, the pickle ball courts, or a drink before somebody makes dinner. <b>Nothing later than a 3:00 PM start gets 18 holes in before dark, so there is room for the schedule to slip (if we want a later start or a longer break between rounds).</b></p>
 
   <h2 style="font-family:Bitter,Georgia,serif; font-size:19px; margin:26px 0 10px; padding-bottom:5px; border-bottom:1px solid #ddd8cc; break-before:page">Food &amp; The Pace of the Trip</h2>
   <p style="font-size:14px; line-height:1.6; margin:0 0 10px">Two instincts in this group: cook every meal at the house, or let the club serve us. Both are good and we can have both without arguing about it on Thursday night. The plan below splits it — one pickup night, one house dinner, one served dinner — and everything golf-adjacent (tacos, box lunches, men's grill) comes from the club so nobody is cooking before a round.</p>
@@ -245,7 +249,7 @@
 
   <div style="break-inside:avoid; margin-bottom:16px">
     <div style="font:600 16px Bitter,Georgia,serif; margin-bottom:6px">2:00 PM — Host's afternoon, open invitation</div>
-    <div style="display:flex; gap:12px; font-size:14px; line-height:1.5"><span style="flex:0 0 108px; font:600 11px Karla; letter-spacing:.13em; text-transform:uppercase; color:#8a9490; padding-top:3px">Option 1</span><span>Play a round. A 2:00 PM tee is in by 6:00. Others could join for the back nine.</span></div>
+    <div style="display:flex; gap:12px; font-size:14px; line-height:1.5"><span style="flex:0 0 108px; font:600 11px Karla; letter-spacing:.13em; text-transform:uppercase; color:#8a9490; padding-top:3px">Option 1</span><span>Play a round. A 2:00 PM tee is in by 6:00 PM. Others could join for the back nine.</span></div>
     <div style="display:flex; gap:12px; font-size:14px; line-height:1.5"><span style="flex:0 0 108px; font:600 11px Karla; letter-spacing:.13em; text-transform:uppercase; color:#8a9490; padding-top:3px">Option 2</span><span>Practice park and the range, easy afternoon.</span></div>
     <div style="display:flex; gap:12px; font-size:14px; line-height:1.5"><span style="flex:0 0 108px; font:600 11px Karla; letter-spacing:.13em; text-transform:uppercase; color:#8a9490; padding-top:3px">Option 3</span><span>Pickle ball warm up.</span></div>
   </div>
